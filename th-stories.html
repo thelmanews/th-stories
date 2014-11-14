@@ -6,7 +6,7 @@
   It allows you to pass story-link data as an array of objects and groups them together, 
   but th-story-link is not dependent on this; it can also be used in a <ul> or standalone.
 -->
-<polymer-element name="th-stories" attributes="width links bgColor">
+<polymer-element name="th-stories" extends="th-animated" attributes="width links bgColor">
   <template>
       <core-style ref="theme"></core-style>
       <style>
@@ -16,13 +16,13 @@
           -webkit-column-count: 1;
              -moz-column-count: 1;
                   column-count: 1;
-          width: {{width + "px"}};
         }
       </style>
-      <ul class="story-set">
+      
+      <ul class="story-set" style="width:{{width | widthFilter}};">
          <template repeat="{{ link, linkIndex in links }}">
           <template if="{{link.url}}">
-            <th-story-link id="{{linkIndex}}" url="{{link.url}}" bgColor="{{bgColor}}" storyTitle="{{link.title}}" image="{{link.image}}" width="{{width}}">    
+            <th-story-link id="{{linkIndex}}" url="{{link.url}}" bgColor="{{bgColor}}" storyTitle="{{link.title}}" image="{{link.image}}" width="100%">    
               {{link.leadIn}}
             </th-story-link>
           </template>
