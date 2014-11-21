@@ -21,7 +21,7 @@
       
       <ul class="story-set" style="width:{{width | widthFilter}};">
          <template repeat="{{ link, linkIndex in links }}">
-          <template if="{{link.url}}">
+          <template if="{{link && link.url}}">
             <th-story-link id="{{linkIndex}}" url="{{link.url}}" bgColor="{{bgColor}}" storyTitle="{{link.title}}" image="{{link.image}}" width="100%">    
               {{link.leadIn}}
             </th-story-link>
