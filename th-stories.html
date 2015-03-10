@@ -51,7 +51,7 @@
         }
       },
       testIfBlank: function(value){
-        return value.length > 5 ? value : null;
+        return value && value.length > 5 ? value : null;
       }
     });
   </script>
